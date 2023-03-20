@@ -33,6 +33,7 @@ type Updater interface {
 // meterMeasurement is used as slice element for publishing structured data
 type meterMeasurement struct {
 	Power float64 `json:"power"`
+	Title string  `json:"title"`
 }
 
 // batteryMeasurement is used as slice element for publishing structured data
@@ -63,8 +64,9 @@ type Site struct {
 	SmartCostLimit                    float64      `mapstructure:"smartCostLimit"`                    // always charge if cost is below this value
 
 	// meters
-	gridMeter     api.Meter   // Grid usage meter
-	pvMeters      []api.Meter // PV generation meters
+	gridMeter     api.Meter            // Grid usage meter
+	pvMeters      map[string]api.Meter // PV generation meters
+	pvMetersKey   []string
 	batteryMeters []api.Meter // Battery charging meters
 	auxMeters     []api.Meter // Auxiliary meters
 
@@ -81,6 +83,8 @@ type Site struct {
 	batterySoc   float64 // Battery soc
 
 	publishCache map[string]any // store last published values to avoid unnecessary republishing
+
+	metadata map[string]interface{}
 }
 
 // MetersConfig contains the loadpoint's meter configuration
@@ -108,6 +112,7 @@ func NewSiteFromConfig(
 	}
 
 	Voltage = site.Voltage
+	site.metadata = cp.Metadata()
 	site.loadpoints = loadpoints
 	site.tariffs = tariffs
 	site.coordinator = coordinator.New(log, vehicles)
@@ -149,11 +154,15 @@ func NewSiteFromConfig(
 
 	// multiple pv
 	for _, ref := range append(site.Meters.PVMetersRef, site.Meters.PVMetersRef_...) {
+		if site.pvMeters == nil {
+			site.pvMeters = map[string]api.Meter{}
+		}
 		pv, err := cp.Meter(ref)
 		if err != nil {
 			return nil, err
 		}
-		site.pvMeters = append(site.pvMeters, pv)
+		site.pvMetersKey = append(site.pvMetersKey, ref)
+		site.pvMeters[ref] = pv
 	}
 
 	// multiple batteries
@@ -239,8 +248,8 @@ func (site *Site) DumpConfig() {
 	}
 
 	if len(site.pvMeters) > 0 {
-		for i, pv := range site.pvMeters {
-			site.log.INFO.Println(meterCapabilities(fmt.Sprintf("pv %d", i+1), pv))
+		for i, pv := range site.pvMetersKey {
+			site.log.INFO.Println(meterCapabilities(fmt.Sprintf("pv %d", i+1), site.pvMeters[pv]))
 		}
 	}
 
@@ -356,11 +365,11 @@ func (site *Site) updateMeters() error {
 		site.pvPower = 0
 		mm := make([]meterMeasurement, len(site.pvMeters))
 
-		for i, meter := range site.pvMeters {
+		for i, ref := range site.pvMetersKey {
 			var power float64
-			err := retry.Do(site.updateMeter(meter, &power), retryOptions...)
+			err := retry.Do(site.updateMeter(site.pvMeters[ref], &power), retryOptions...)
 
-			mm[i] = meterMeasurement{Power: power}
+			mm[i] = meterMeasurement{Power: power, Title: site.GetMetadataStringForKey(ref, "title")}
 
 			if err == nil {
 				// ignore negative values which represent self-consumption
@@ -749,4 +758,23 @@ func (site *Site) Run(stopC chan struct{}, interval time.Duration) {
 			return
 		}
 	}
+}
+
+func (site *Site) GetMetadataStringForKey(key, subkey string) string {
+	v, ok := site.metadata[key]
+	if !ok {
+		return ""
+	}
+	vv, ok := v.(map[string]interface{})
+	if !ok {
+		return ""
+	}
+
+	vvv, ok := vv[subkey]
+	if !ok {
+		return ""
+	}
+
+	value, _ := vvv.(string)
+	return value
 }

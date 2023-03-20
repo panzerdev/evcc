@@ -72,6 +72,7 @@ type config struct {
 	Tariffs      tariffConfig
 	Site         map[string]interface{}
 	Loadpoints   []map[string]interface{}
+	Metadata     map[string]interface{}
 }
 
 type mqttConfig struct {
@@ -141,6 +142,7 @@ type ConfigProvider struct {
 	vehicles map[string]api.Vehicle
 	visited  map[string]bool
 	auth     *util.AuthCollection
+	metadata map[string]interface{}
 }
 
 func (cp *ConfigProvider) TrackVisitors() {
@@ -179,7 +181,14 @@ func (cp *ConfigProvider) Vehicle(name string) (api.Vehicle, error) {
 	return nil, fmt.Errorf("vehicle does not exist: %s", name)
 }
 
+// Vehicle provides vehicles by name
+func (cp *ConfigProvider) Metadata() map[string]interface{} {
+	return cp.metadata
+}
+
 func (cp *ConfigProvider) configure(conf config) error {
+	cp.metadata = conf.Metadata
+
 	err := cp.configureMeters(conf)
 	if err == nil {
 		err = cp.configureChargers(conf)
