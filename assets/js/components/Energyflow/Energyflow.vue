@@ -223,7 +223,7 @@ export default {
 			if (!Array.isArray(this.pv) || this.pv.length <= 1) {
 				return;
 			}
-			return this.pv.map(({ power }) => this.fmtKw(power, this.powerInKw));
+			return this.pv.map(({ power, title }) => (title ? title + " - " : "") + this.fmtKw(power, this.powerInKw));
 		},
 		batteryTooltip() {
 			if (!Array.isArray(this.battery)) {
