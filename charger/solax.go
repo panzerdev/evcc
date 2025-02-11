@@ -57,7 +57,7 @@ const (
 )
 
 func init() {
-	registry.Add("solax", NewSolaxFromConfig)
+	RegisterCharger("solax", NewSolaxFromConfig)
 }
 
 // NewSolaxFromConfig creates a Solax charger from generic config

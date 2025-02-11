@@ -39,7 +39,7 @@ type ConnectIq struct {
 }
 
 func init() {
-	registry.Add("connectiq", NewConnectIqFromConfig)
+	RegisterCharger("connectiq", NewConnectIqFromConfig)
 }
 
 // NewConnectIqFromConfig creates a ConnectIq charger from generic config

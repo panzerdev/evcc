@@ -45,7 +45,7 @@ type Smaevcharger struct {
 }
 
 func init() {
-	registry.Add("smaevcharger", NewSmaevchargerFromConfig)
+	RegisterCharger("smaevcharger", NewSmaevchargerFromConfig)
 }
 
 // NewSmaevchargerFromConfig creates a SMA EV Charger from generic config

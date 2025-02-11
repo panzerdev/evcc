@@ -37,7 +37,7 @@ type Wallbe struct {
 }
 
 func init() {
-	registry.Add("wallbe", NewWallbeFromConfig)
+	RegisterCharger("wallbe", NewWallbeFromConfig)
 }
 
 //go:generate decorate -f decorateWallbe -b *Wallbe -r api.Charger -t "api.Meter,CurrentPower,func() (float64, error)" -t "api.MeterEnergy,TotalEnergy,func() (float64, error)" -t "api.PhaseCurrents,Currents,func() (float64, float64, float64, error)" -t "api.ChargerEx,MaxCurrentMillis,func(float64) error"

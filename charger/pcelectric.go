@@ -26,8 +26,8 @@ type PCElectric struct {
 }
 
 func init() {
-	registry.Add("garo", NewPCElectricFromConfig)
-	registry.Add("pcelectric", NewPCElectricFromConfig)
+	RegisterCharger("garo", NewPCElectricFromConfig)
+	RegisterCharger("pcelectric", NewPCElectricFromConfig)
 }
 
 //go:generate decorate -f decoratePCE -b *PCElectric -r api.Charger -t "api.Meter,CurrentPower,func() (float64, error)" -t "api.MeterEnergy,TotalEnergy,func() (float64, error)" -t "api.PhaseCurrents,Currents,func() (float64, float64, float64, error)"

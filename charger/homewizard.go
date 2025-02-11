@@ -19,7 +19,7 @@ type HomeWizard struct {
 }
 
 func init() {
-	registry.Add("homewizard", NewHomeWizardFromConfig)
+	RegisterCharger("homewizard", NewHomeWizardFromConfig)
 }
 
 // NewHomeWizardFromConfig creates a HomeWizard charger from generic config

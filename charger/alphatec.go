@@ -42,7 +42,7 @@ const (
 )
 
 func init() {
-	registry.Add("alphatec", NewAlphatecFromConfig)
+	RegisterCharger("alphatec", NewAlphatecFromConfig)
 }
 
 // NewAlphatecFromConfig creates a Alphatec charger from generic config

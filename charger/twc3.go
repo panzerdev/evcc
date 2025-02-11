@@ -21,7 +21,7 @@ type Twc3 struct {
 }
 
 func init() {
-	registry.Add("twc3", NewTwc3FromConfig)
+	RegisterCharger("twc3", NewTwc3FromConfig)
 }
 
 // Vitals is the /api/1/vitals response

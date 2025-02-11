@@ -46,7 +46,7 @@ const (
 )
 
 func init() {
-	registry.Add("pracht-alpha", NewPrachtAlphaFromConfig)
+	RegisterCharger("pracht-alpha", NewPrachtAlphaFromConfig)
 }
 
 // NewPrachtAlphaFromConfig creates a PrachtAlpha charger from generic config

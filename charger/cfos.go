@@ -34,7 +34,7 @@ type CfosPowerBrain struct {
 }
 
 func init() {
-	registry.Add("cfos", NewCfosPowerBrainFromConfig)
+	RegisterCharger("cfos", NewCfosPowerBrainFromConfig)
 }
 
 //go:generate decorate -f decorateCfos -b *CfosPowerBrain -r api.Charger -t "api.Meter,CurrentPower,func() (float64, error)" -t "api.MeterEnergy,TotalEnergy,func() (float64, error)" -t "api.PhaseCurrents,Currents,func() (float64, float64, float64, error)" -t "api.PhaseSwitcher,Phases1p3p,func(int) error"

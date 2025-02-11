@@ -68,7 +68,8 @@ const (
 )
 
 func init() {
-	registry.Add("bender", NewBenderCCFromConfig)
+	RegisterCharger("bender", NewBenderCCFromConfig)
+
 }
 
 // NewBenderCCFromConfig creates a BenderCC charger from generic config

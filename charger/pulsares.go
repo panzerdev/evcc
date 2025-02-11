@@ -48,7 +48,7 @@ const (
 )
 
 func init() {
-	registry.AddCtx("pulsares", NewPulsaresFromConfig)
+	RegisterChargerCtx("pulsares", NewPulsaresFromConfig)
 }
 
 //go:generate decorate -f decoratePulsares -b *Pulsares -r api.Charger -t "api.PhaseSwitcher,Phases1p3p,func(int) error"

@@ -55,7 +55,7 @@ const (
 )
 
 func init() {
-	registry.Add("hesotec", NewHesotecFromConfig)
+	RegisterCharger("hesotec", NewHesotecFromConfig)
 }
 
 // NewHesotecFromConfig creates a Hesotec charger from generic config

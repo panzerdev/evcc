@@ -48,7 +48,7 @@ type AblEm4 struct {
 }
 
 func init() {
-	registry.Add("abl-em4", NewAblEm4FromConfig)
+	RegisterCharger("abl-em4", NewAblEm4FromConfig)
 }
 
 // NewAblEm4FromConfig creates an ABL eM4 charger from generic config
