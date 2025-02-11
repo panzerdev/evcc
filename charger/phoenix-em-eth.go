@@ -28,7 +28,7 @@ type PhoenixEMEth struct {
 }
 
 func init() {
-	registry.Add("phoenix-em-eth", NewPhoenixEMEthFromConfig)
+	RegisterCharger("phoenix-em-eth", NewPhoenixEMEthFromConfig)
 }
 
 //go:generate decorate -f decoratePhoenixEMEth -b *PhoenixEMEth -r api.Charger -t "api.Meter,CurrentPower,func() (float64, error)" -t "api.MeterEnergy,TotalEnergy,func() (float64, error)" -t "api.PhaseCurrents,Currents,func() (float64, float64, float64, error)" -t "api.PhaseVoltages,Voltages,func() (float64, float64, float64, error)"

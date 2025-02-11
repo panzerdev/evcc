@@ -62,7 +62,7 @@ var (
 )
 
 func init() {
-	registry.Add("sungrow", NewSungrowFromConfig)
+	RegisterCharger("sungrow", NewSungrowFromConfig)
 }
 
 // NewSungrowFromConfig creates a Sungrow charger from generic config

@@ -35,7 +35,7 @@ const (
 )
 
 func init() {
-	registry.Add("openwb-2.0", NewOpenWB20FromConfig)
+	RegisterCharger("openwb-2.0", NewOpenWB20FromConfig)
 }
 
 // https://openwb.de/main/wp-content/uploads/2023/10/ModbusTCP-openWB-series2-Pro-1.pdf

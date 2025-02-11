@@ -67,8 +67,8 @@ var (
 )
 
 func init() {
-	registry.Add("victron", NewVictronGXFromConfig)
-	registry.Add("victron-evcs", NewVictronEVCSFromConfig)
+	RegisterCharger("victron", NewVictronGXFromConfig)
+	RegisterCharger("victron-evcs", NewVictronEVCSFromConfig)
 }
 
 // NewVictronGXFromConfig creates a ABB charger from generic config

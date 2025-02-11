@@ -59,7 +59,7 @@ type Etrel struct {
 }
 
 func init() {
-	registry.Add("etrel", NewEtrelFromConfig)
+	RegisterCharger("etrel", NewEtrelFromConfig)
 }
 
 // NewEtrelFromConfig creates a Etrel charger from generic config

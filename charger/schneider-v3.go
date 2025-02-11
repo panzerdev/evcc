@@ -56,7 +56,7 @@ const (
 )
 
 func init() {
-	registry.AddCtx("schneider-v3", NewSchneiderV3FromConfig)
+	RegisterChargerCtx("schneider-v3", NewSchneiderV3FromConfig)
 }
 
 // https://download.schneider-electric.com/files?p_enDocType=Other+technical+guide&p_File_Name=GEX1969300-04.pdf&p_Doc_Ref=GEX1969300

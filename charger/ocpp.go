@@ -50,7 +50,7 @@ type OCPP struct {
 const defaultIdTag = "evcc" // RemoteStartTransaction only
 
 func init() {
-	registry.Add("ocpp", NewOCPPFromConfig)
+	RegisterCharger("ocpp", NewOCPPFromConfig)
 }
 
 // NewOCPPFromConfig creates a OCPP charger from generic config

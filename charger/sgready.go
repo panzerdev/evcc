@@ -38,7 +38,7 @@ type SgReady struct {
 }
 
 func init() {
-	registry.AddCtx("sgready", NewSgReadyFromConfig)
+	RegisterChargerCtx("sgready", NewSgReadyFromConfig)
 }
 
 const (

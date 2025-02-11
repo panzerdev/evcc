@@ -62,7 +62,7 @@ type pulsatrixData struct {
 }
 
 func init() {
-	registry.Add("pulsatrix", NewPulsatrixFromConfig)
+	RegisterCharger("pulsatrix", NewPulsatrixFromConfig)
 }
 
 // NewPulsatrixtFromConfig creates a pulsatrix charger from generic config

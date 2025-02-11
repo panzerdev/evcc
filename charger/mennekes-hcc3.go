@@ -49,7 +49,7 @@ const (
 )
 
 func init() {
-	registry.Add("mennekes-hcc3", NewMennekesHcc3FromConfig)
+	RegisterCharger("mennekes-hcc3", NewMennekesHcc3FromConfig)
 }
 
 // NewMennekesHcc3FromConfig creates a Mennekes mennekesHcc3 charger from generic config

@@ -33,7 +33,7 @@ import (
 )
 
 func init() {
-	registry.AddCtx("vaillant", NewVaillantFromConfig)
+	RegisterChargerCtx("vaillant", NewVaillantFromConfig)
 }
 
 type Vaillant struct {

@@ -17,7 +17,7 @@ type TPLink struct {
 }
 
 func init() {
-	registry.Add("tplink", NewTPLinkFromConfig)
+	RegisterCharger("tplink", NewTPLinkFromConfig)
 }
 
 // NewTPLinkFromConfig creates a TP-Link charger from generic config

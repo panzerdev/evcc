@@ -13,7 +13,7 @@ type Tapo struct {
 }
 
 func init() {
-	registry.Add("tapo", NewTapoFromConfig)
+	RegisterCharger("tapo", NewTapoFromConfig)
 }
 
 // NewTapoFromConfig creates a Tapo charger from generic config

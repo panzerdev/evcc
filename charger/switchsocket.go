@@ -10,7 +10,7 @@ import (
 )
 
 func init() {
-	registry.AddCtx("switchsocket", NewSwitchSocketFromConfig)
+	RegisterChargerCtx("switchsocket", NewSwitchSocketFromConfig)
 }
 
 type SwitchSocket struct {

@@ -71,7 +71,7 @@ type Easee struct {
 }
 
 func init() {
-	registry.Add("easee", NewEaseeFromConfig)
+	RegisterCharger("easee", NewEaseeFromConfig)
 }
 
 // NewEaseeFromConfig creates a Easee charger from generic config

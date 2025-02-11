@@ -61,7 +61,7 @@ type Vestel struct {
 }
 
 func init() {
-	registry.AddCtx("vestel", NewVestelFromConfig)
+	RegisterChargerCtx("vestel", NewVestelFromConfig)
 }
 
 // NewVestelFromConfig creates a Vestel charger from generic config

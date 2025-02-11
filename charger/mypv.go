@@ -53,12 +53,12 @@ var elwaTemp = []uint16{1001, 1030, 1031}
 
 func init() {
 	// https://github.com/evcc-io/evcc/discussions/12761
-	registry.AddCtx("ac-elwa-2", func(ctx context.Context, other map[string]interface{}) (api.Charger, error) {
+	RegisterChargerCtx("ac-elwa-2", func(ctx context.Context, other map[string]interface{}) (api.Charger, error) {
 		return newMyPvFromConfig(ctx, "ac-elwa-2", other, 2)
 	})
 
 	// https: // github.com/evcc-io/evcc/issues/18020
-	registry.AddCtx("ac-thor", func(ctx context.Context, other map[string]interface{}) (api.Charger, error) {
+	RegisterChargerCtx("ac-thor", func(ctx context.Context, other map[string]interface{}) (api.Charger, error) {
 		return newMyPvFromConfig(ctx, "ac-thor", other, 9)
 	})
 }

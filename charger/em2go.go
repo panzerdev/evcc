@@ -62,8 +62,8 @@ const (
 )
 
 func init() {
-	registry.Add("em2go", NewEm2GoFromConfig)
-	registry.Add("em2go-home", NewEm2GoFromConfig)
+	RegisterCharger("em2go", NewEm2GoFromConfig)
+	RegisterCharger("em2go-home", NewEm2GoFromConfig)
 }
 
 //go:generate decorate -f decorateEm2Go -b *Em2Go -r api.Charger -t "api.ChargerEx,MaxCurrentMillis,func(float64) error" -t "api.PhaseSwitcher,Phases1p3p,func(int) error" -t "api.PhaseGetter,GetPhases,func() (int, error)"

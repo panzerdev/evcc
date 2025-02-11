@@ -21,7 +21,7 @@ type PhoenixEVSer struct {
 }
 
 func init() {
-	registry.Add("phoenix-ev-ser", NewPhoenixEVSerFromConfig)
+	RegisterCharger("phoenix-ev-ser", NewPhoenixEVSerFromConfig)
 }
 
 // NewPhoenixEVSerFromConfig creates a Phoenix charger from generic config

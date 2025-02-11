@@ -52,7 +52,7 @@ const (
 )
 
 func init() {
-	registry.AddCtx("webasto-next", NewWebastoNextFromConfig)
+	RegisterChargerCtx("webasto-next", NewWebastoNextFromConfig)
 }
 
 // NewWebastoNextFromConfig creates a WebastoNext charger from generic config

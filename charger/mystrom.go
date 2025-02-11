@@ -13,7 +13,7 @@ import (
 // https://api.mystrom.ch/#fbb2c698-e37a-4584-9324-3f8b2f615fe2
 
 func init() {
-	registry.Add("mystrom", NewMyStromFromConfig)
+	RegisterCharger("mystrom", NewMyStromFromConfig)
 }
 
 // MyStrom charger implementation

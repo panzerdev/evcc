@@ -20,7 +20,7 @@ type Tasmota struct {
 }
 
 func init() {
-	registry.Add("tasmota", NewTasmotaFromConfig)
+	RegisterCharger("tasmota", NewTasmotaFromConfig)
 }
 
 //go:generate decorate -f decorateTasmota -b *Tasmota -r api.Charger -t "api.PhaseVoltages,Voltages,func() (float64, float64, float64, error)" -t "api.PhaseCurrents,Currents,func() (float64, float64, float64, error)"

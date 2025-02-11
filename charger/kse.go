@@ -52,7 +52,7 @@ const (
 )
 
 func init() {
-	registry.Add("kse", NewKSEFromConfig)
+	RegisterCharger("kse", NewKSEFromConfig)
 }
 
 // NewKSEFromConfig creates a KSE charger from generic config

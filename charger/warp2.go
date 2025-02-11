@@ -32,8 +32,8 @@ type Warp2 struct {
 }
 
 func init() {
-	registry.Add("warp2", NewWarp2FromConfig)
-	registry.Add("warp-fw2", NewWarp2FromConfig) // deprecated
+	RegisterCharger("warp2", NewWarp2FromConfig)
+	RegisterCharger("warp-fw2", NewWarp2FromConfig) // deprecated
 }
 
 //go:generate decorate -f decorateWarp2 -b *Warp2 -r api.Charger -t "api.Meter,CurrentPower,func() (float64, error)" -t "api.MeterEnergy,TotalEnergy,func() (float64, error)" -t "api.PhaseCurrents,Currents,func() (float64, float64, float64, error)" -t "api.PhaseVoltages,Voltages,func() (float64, float64, float64, error)" -t "api.Identifier,Identify,func() (string, error)" -t "api.PhaseSwitcher,Phases1p3p,func(int) error" -t "api.PhaseGetter,GetPhases,func() (int, error)"

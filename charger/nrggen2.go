@@ -45,7 +45,7 @@ const (
 )
 
 func init() {
-	registry.Add("nrggen2", NewNRGKickGen2FromConfig)
+	RegisterCharger("nrggen2", NewNRGKickGen2FromConfig)
 }
 
 //go:generate decorate -f decorateNRGKickGen2 -b *NRGKickGen2 -r api.Charger -t "api.PhaseSwitcher,Phases1p3p,func(int) error"

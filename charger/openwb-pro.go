@@ -13,7 +13,7 @@ import (
 )
 
 func init() {
-	registry.AddCtx("openwbpro", NewOpenWBProFromConfig)
+	RegisterChargerCtx("openwbpro", NewOpenWBProFromConfig)
 }
 
 // https://openwb.de/main/?page_id=771

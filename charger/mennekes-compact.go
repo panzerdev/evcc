@@ -64,7 +64,7 @@ const (
 )
 
 func init() {
-	registry.AddCtx("mennekes-compact", NewMennekesCompactFromConfig)
+	RegisterChargerCtx("mennekes-compact", NewMennekesCompactFromConfig)
 }
 
 // NewMennekesCompactFromConfig creates a new Mennekes ModbusTCP charger

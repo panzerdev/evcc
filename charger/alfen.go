@@ -53,7 +53,7 @@ const (
 )
 
 func init() {
-	registry.AddCtx("alfen", NewAlfenFromConfig)
+	RegisterChargerCtx("alfen", NewAlfenFromConfig)
 }
 
 //go:generate decorate -f decorateAlfen -b *Alfen -r api.Charger -t "api.PhaseSwitcher,Phases1p3p,func(int) error" -t "api.PhaseGetter,GetPhases,func() (int, error)"

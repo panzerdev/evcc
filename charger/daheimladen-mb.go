@@ -57,7 +57,7 @@ const (
 )
 
 func init() {
-	registry.AddCtx("daheimladen-mb", NewDaheimLadenMBFromConfig)
+	RegisterChargerCtx("daheimladen-mb", NewDaheimLadenMBFromConfig)
 }
 
 // NewDaheimLadenMBFromConfig creates a DaheimLadenMB charger from generic config

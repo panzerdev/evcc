@@ -60,7 +60,7 @@ const (
 )
 
 func init() {
-	registry.AddCtx("delta", NewDeltaFromConfig)
+	RegisterChargerCtx("delta", NewDeltaFromConfig)
 }
 
 // NewDeltaFromConfig creates a Delta charger from generic config

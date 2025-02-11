@@ -55,7 +55,7 @@ type Versicharge struct {
 }
 
 func init() {
-	registry.Add("versicharge", NewVersichargeFromConfig)
+	RegisterCharger("versicharge", NewVersichargeFromConfig)
 }
 
 // NewVersichargeFromConfig creates a Versicharge charger from generic config

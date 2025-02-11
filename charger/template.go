@@ -8,7 +8,7 @@ import (
 )
 
 func init() {
-	registry.AddCtx("template", NewChargerFromTemplateConfig)
+	RegisterChargerCtx("template", NewChargerFromTemplateConfig)
 }
 
 func NewChargerFromTemplateConfig(ctx context.Context, other map[string]interface{}) (api.Charger, error) {

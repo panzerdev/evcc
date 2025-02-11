@@ -48,7 +48,7 @@ type HardyBarth struct {
 }
 
 func init() {
-	registry.Add("hardybarth-ecb1", NewHardyBarthFromConfig)
+	RegisterCharger("hardybarth-ecb1", NewHardyBarthFromConfig)
 }
 
 // NewHardyBarthFromConfig creates a HardyBarth cPH1 charger from generic config
