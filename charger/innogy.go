@@ -51,7 +51,7 @@ type Innogy struct {
 }
 
 func init() {
-	registry.Add("innogy", NewInnogyFromConfig)
+	RegisterCharger("innogy", NewInnogyFromConfig)
 }
 
 // NewInnogyFromConfig creates a Innogy charger from generic config

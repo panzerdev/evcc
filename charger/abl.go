@@ -73,7 +73,7 @@ var ablStatus = map[byte]string{
 }
 
 func init() {
-	registry.Add("abl", NewABLeMHFromConfig)
+	RegisterCharger("abl", NewABLeMHFromConfig)
 }
 
 // https://www.goingelectric.de/forum/viewtopic.php?p=1550459#p1550459

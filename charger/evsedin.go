@@ -21,8 +21,8 @@ const (
 )
 
 func init() {
-	registry.Add("simpleevse", NewEvseDINFromConfig) // deprecated
-	registry.Add("evsedin", NewEvseDINFromConfig)
+	RegisterCharger("simpleevse", NewEvseDINFromConfig) // deprecated
+	RegisterCharger("evsedin", NewEvseDINFromConfig)
 }
 
 // https://files.ev-power.eu/inc/_doc/attach/StoItem/4418/evse-wb-din_Manual.pdf

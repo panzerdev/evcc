@@ -27,7 +27,7 @@ type DaheimLaden struct {
 }
 
 func init() {
-	registry.Add("daheimladen", NewDaheimLadenFromConfig)
+	RegisterCharger("daheimladen", NewDaheimLadenFromConfig)
 }
 
 // NewDaheimLadenFromConfig creates a DaheimLaden charger from generic config

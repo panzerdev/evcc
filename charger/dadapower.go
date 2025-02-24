@@ -37,7 +37,7 @@ type Dadapower struct {
 }
 
 func init() {
-	registry.AddCtx("dadapower", NewDadapowerFromConfig)
+	RegisterChargerCtx("dadapower", NewDadapowerFromConfig)
 }
 
 // NewDadapowerFromConfig creates a Dadapower charger from generic config

@@ -19,7 +19,7 @@ type FritzDECT struct {
 }
 
 func init() {
-	registry.Add("fritzdect", NewFritzDECTFromConfig)
+	RegisterCharger("fritzdect", NewFritzDECTFromConfig)
 }
 
 // NewFritzDECTFromConfig creates a fritzdect charger from generic config

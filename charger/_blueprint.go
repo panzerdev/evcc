@@ -32,7 +32,7 @@ type Blueprint struct {
 }
 
 func init() {
-	// registry.Add("foo", NewBlueprintFromConfig)
+	//  RegisterCharger("foo", NewBlueprintFromConfig)
 }
 
 // NewBlueprintFromConfig creates a blueprint charger from generic config

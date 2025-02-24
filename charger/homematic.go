@@ -15,7 +15,7 @@ type CCU struct {
 }
 
 func init() {
-	registry.Add("homematic", NewCCUFromConfig)
+	RegisterCharger("homematic", NewCCUFromConfig)
 }
 
 // NewCCUFromConfig creates a Homematic charger from generic config

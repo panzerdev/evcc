@@ -15,7 +15,7 @@ type Shelly struct {
 }
 
 func init() {
-	registry.Add("shelly", NewShellyFromConfig)
+	RegisterCharger("shelly", NewShellyFromConfig)
 }
 
 // NewShellyFromConfig creates a Shelly charger from generic config

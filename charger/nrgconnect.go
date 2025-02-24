@@ -27,7 +27,7 @@ type NRGKickConnect struct {
 }
 
 func init() {
-	registry.Add("nrgkick-connect", NewNRGKickConnectFromConfig)
+	RegisterCharger("nrgkick-connect", NewNRGKickConnectFromConfig)
 }
 
 // NewNRGKickConnectFromConfig creates a NRGKickConnect charger from generic config

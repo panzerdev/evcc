@@ -9,6 +9,8 @@ import (
 	"github.com/evcc-io/evcc/cmd"
 	"github.com/evcc-io/evcc/server/assets"
 	_ "golang.org/x/crypto/x509roots/fallback" // fallback certificates
+
+	_ "github.com/panzerdev/panzer_charger"
 )
 
 var (

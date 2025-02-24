@@ -54,7 +54,7 @@ const (
 )
 
 func init() {
-	registry.AddCtx("weidmüller", NewWeidmüllerFromConfig)
+	RegisterChargerCtx("weidmüller", NewWeidmüllerFromConfig)
 }
 
 // NewWeidmüllerFromConfig creates a Weidmüller charger from generic config

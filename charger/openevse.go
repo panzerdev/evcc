@@ -25,7 +25,7 @@ type OpenEVSE struct {
 }
 
 func init() {
-	registry.Add("openevse", NewOpenEVSEFromConfig)
+	RegisterCharger("openevse", NewOpenEVSEFromConfig)
 }
 
 //go:generate decorate -f decorateOpenEVSE -b *OpenEVSE -r api.Charger -t "api.PhaseSwitcher,Phases1p3p,func(int) error"

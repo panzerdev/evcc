@@ -17,7 +17,7 @@ type Pantabox struct {
 }
 
 func init() {
-	registry.Add("pantabox", NewPantaboxFromConfig)
+	RegisterCharger("pantabox", NewPantaboxFromConfig)
 }
 
 // NewPantaboxFromConfig creates a Pantabox charger from generic config

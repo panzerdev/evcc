@@ -64,7 +64,7 @@ const (
 )
 
 func init() {
-	registry.Add("smartevse", NewsmartEVSEFromConfig)
+	RegisterCharger("smartevse", NewsmartEVSEFromConfig)
 }
 
 // NewsmartEVSEFromConfig creates a new smartEVSE ModbusTCP charger

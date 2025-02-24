@@ -48,7 +48,7 @@ type Trydan struct {
 }
 
 func init() {
-	registry.Add("trydan", NewTrydanFromConfig)
+	RegisterCharger("trydan", NewTrydanFromConfig)
 }
 
 // NewTrydanFromConfig creates a Trydan charger from generic config

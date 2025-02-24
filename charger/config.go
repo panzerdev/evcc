@@ -9,6 +9,14 @@ import (
 
 var registry = config.Registry
 
+func RegisterChargerCtx(name string, charger func(context.Context, map[string]any) (api.Charger, error)) {
+	registry.AddCtx(name, charger)
+}
+
+func RegisterCharger(name string, charger func(map[string]any) (api.Charger, error)) {
+	registry.Add(name, charger)
+}
+
 // Types returns the list of types
 func Types() []string {
 	return registry.Types()

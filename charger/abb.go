@@ -52,7 +52,7 @@ const (
 )
 
 func init() {
-	registry.Add("abb", NewABBFromConfig)
+	RegisterCharger("abb", NewABBFromConfig)
 }
 
 // NewABBFromConfig creates a ABB charger from generic config

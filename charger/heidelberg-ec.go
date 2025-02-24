@@ -55,7 +55,7 @@ const (
 )
 
 func init() {
-	registry.AddCtx("heidelberg", NewHeidelbergECFromConfig)
+	RegisterChargerCtx("heidelberg", NewHeidelbergECFromConfig)
 }
 
 // https://wallbox.heidelberg.com/wp-content/uploads/2021/05/EC_ModBus_register_table_20210222.pdf (newer)

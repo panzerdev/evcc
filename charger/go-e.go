@@ -38,10 +38,10 @@ type GoE struct {
 }
 
 func init() {
-	registry.Add("go-e", func(other map[string]interface{}) (api.Charger, error) {
+	RegisterCharger("go-e", func(other map[string]interface{}) (api.Charger, error) {
 		return newGoEFromConfig(true, other)
 	})
-	registry.Add("go-e-v3", func(other map[string]interface{}) (api.Charger, error) {
+	RegisterCharger("go-e-v3", func(other map[string]interface{}) (api.Charger, error) {
 		return newGoEFromConfig(false, other)
 	})
 }

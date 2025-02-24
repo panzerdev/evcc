@@ -55,7 +55,7 @@ const (
 )
 
 func init() {
-	registry.AddCtx("amperfied", NewAmperfiedFromConfig)
+	RegisterChargerCtx("amperfied", NewAmperfiedFromConfig)
 }
 
 //go:generate decorate -f decorateAmperfied -b *Amperfied -r api.Charger -t "api.PhaseSwitcher,Phases1p3p,func(int) error" -t "api.PhaseGetter,GetPhases,func() (int, error)"

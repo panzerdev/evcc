@@ -49,7 +49,7 @@ type Zaptec struct {
 }
 
 func init() {
-	registry.Add("zaptec", NewZaptecFromConfig)
+	RegisterCharger("zaptec", NewZaptecFromConfig)
 }
 
 // NewZaptecFromConfig creates a Zaptec Pro charger from generic config

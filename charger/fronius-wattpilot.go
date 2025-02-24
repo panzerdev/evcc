@@ -18,7 +18,7 @@ type Wattpilot struct {
 }
 
 func init() {
-	registry.Add("wattpilot", NewWattpilotFromConfig)
+	RegisterCharger("wattpilot", NewWattpilotFromConfig)
 }
 
 // NewWattpilotFromConfig creates a wattpilot charger from generic config

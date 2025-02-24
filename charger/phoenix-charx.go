@@ -42,7 +42,7 @@ type PhoenixCharx struct {
 }
 
 func init() {
-	registry.Add("phoenix-charx", NewPhoenixCharxFromConfig)
+	RegisterCharger("phoenix-charx", NewPhoenixCharxFromConfig)
 }
 
 //go:generate decorate -f decoratePhoenixCharx -b *PhoenixCharx -r api.Charger -t "api.Meter,CurrentPower,func() (float64, error)" -t "api.MeterEnergy,TotalEnergy,func() (float64, error)" -t "api.PhaseCurrents,Currents,func() (float64, float64, float64, error)" -t "api.PhaseVoltages,Voltages,func() (float64, float64, float64, error)"

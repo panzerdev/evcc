@@ -25,7 +25,7 @@ const (
 )
 
 func init() {
-	registry.AddCtx("obo", NewOboFromConfig)
+	RegisterChargerCtx("obo", NewOboFromConfig)
 }
 
 // NewOboFromConfig creates a OBO Bettermann charger from generic config
